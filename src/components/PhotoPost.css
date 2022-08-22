@@ -1,4 +1,7 @@
 .photo-post{
-    margin: 10px;
-    width: 20%
+    margin: 10px 0;
+    padding-bottom: 10px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
 }

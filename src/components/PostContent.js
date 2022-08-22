@@ -16,7 +16,7 @@ function PostContent(props) {
 
 PostContent.defaultProps = {
   postImage: "https://picsum.photos/200/300?random=" + 2,
-  postText: "default"
+  postText: "This is a default description on the image",
 };
 
 export default PostContent;

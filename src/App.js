@@ -1,10 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import PhotoPost from "./components/PhotoPost";
+import PhotoWall from "./components/PhotoWall";
+
 function App() {
   return (
     <div className="App">
-      <PhotoPost></PhotoPost>
+      <PhotoWall></PhotoWall>
     </div>
   );
 }

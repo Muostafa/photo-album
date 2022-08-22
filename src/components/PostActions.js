@@ -21,7 +21,7 @@ function PostActions(props) {
 }
 
 PostActions.defaultProps = {
-  notes: 0,
+    notes: Math.floor(Math.random() * 100)
 };
 PostActions.propTypes = {
   notes: PropTypes.number,
