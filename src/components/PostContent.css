@@ -9,7 +9,9 @@
   transition: transform 0.5s ease;
 }
 .post-image:hover {
-  transform: scale(1.2);
+  transform: scale(1.5);
+  cursor: pointer;
+  z-index: 1;
 }
 .post-content > p {
   padding: 5px 10px;

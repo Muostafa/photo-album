@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import PhotoPost from "./PhotoPost"
+import PhotoPost from "./PhotoPost";
+import Button from '@mui/material/Button'; 
 import "./PhotoWall.css";
+
 function PhotoWall() {
   const [posts, setPosts] = useState([]);
-  const [postsBatchNum, setPostsBatchNum] =useState(1);
+  const [postsBatchNum, setPostsBatchNum] = useState(1);
   const [postsList, setPostsList] = useState([]);
-  const getFetchUsers = () => {
+
+  const getFetchPhotos = () => {
     fetch(`https://picsum.photos/v2/list?page=${postsBatchNum}&limit=10`)
       .then((res) => res.json())
       .then((result) => {
@@ -18,14 +21,24 @@ function PhotoWall() {
       .catch(console.log);
   };
   useEffect(() => {
-    setPostsList(posts.map((post) => (
-          <PhotoPost key={post.id} userName={post.author} postImage={post.download_url} width={post.width} height={post.height} notes={Math.floor(Math.random() * 100)}/>
-      ))); 
-  }, [postsBatchNum]);
+    setPostsList(
+      posts.map((post) => (
+        <PhotoPost
+          key={post.id}
+          id={post.id}
+          userName={post.author}
+          postImage={post.download_url}
+          width={post.width}
+          height={post.height}
+          notes={Math.floor(Math.random() * 100)}
+        />
+      ))
+    );
+  }, [posts]);
   return (
-    <div className="photo-wall">
-        {postsList}
-      <button onClick={getFetchUsers}></button>
+    <div className="main">
+      <div className="photo-wall">{postsList}</div>
+      <Button variant="contained" onClick={getFetchPhotos}>Load more posts</Button>
     </div>
   );
 }

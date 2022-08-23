@@ -1,16 +1,23 @@
 import React from "react";
-import "./PostContent.css"
-import UserInfo from "./UserInfo";
-import PostActions from "./PostActions";
+import "./PostContent.css";
+import { Link } from "react-router-dom";
 
 function PostContent(props) {
+  const textStyle = {
+    maxWidth: "100%",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 3,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  };
   return (
-    <>
-      <div className="post-content">
-        <img className="post-image" src={props.postImage} />
-        <p>{props.postText}</p>
-      </div>
-    </>
+    <div className="post-content">
+      <Link to={`/photos/${props.id}`} smooth>
+        <img className="post-image" src={props.postImage} alt="random" />
+      </Link>
+      <p style={textStyle}>{props.postText}</p>
+    </div>
   );
 }
 

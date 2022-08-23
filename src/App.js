@@ -1,12 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
 import PhotoWall from "./components/PhotoWall";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Photo from "./components/Photo";
 
 function App() {
   return (
-    <div className="App">
-      <PhotoWall></PhotoWall>
-    </div>
+    <Router>
+      <div>
+      <Routes>
+        <Route path="/" element={<PhotoWall/>}/>
+        <Route path="/photos/:ID" element={<Photo/>}></Route>  
+      </Routes></div>
+    </Router>
   );
 }
 
