@@ -4,7 +4,7 @@ import "./PhotoWall.css";
 import LoadingButton from "@mui/lab/LoadingButton";
 
 function PhotoWall({ posts, setPosts }) {
-  //makes sure we requests different batches from picsum to avoid repetition of the photos
+  //makes sure we requests different batches from picsum api
   const [postsBatchNum, setPostsBatchNum] = useState(1);
   //all the current posts with the required info
   const [postsList, setPostsList] = useState([]);
@@ -28,8 +28,22 @@ function PhotoWall({ posts, setPosts }) {
 
   //update postsLists that should appear on window
   useEffect(() => {
+    //make sure there are unique photos even if they are sent again by the api
+    const uniqueIds = [];
+
+    const uniquePosts = posts.filter(post => {
+      const isDuplicate = uniqueIds.includes(post.id);
+  
+      if (!isDuplicate) {
+        uniqueIds.push(post.id);
+  
+        return true;
+      }
+  
+      return false;
+    });
     setPostsList(
-      posts.map((post) => (
+      uniquePosts.map((post) => (
         <PhotoPost
           key={post.id}
           id={post.id}
