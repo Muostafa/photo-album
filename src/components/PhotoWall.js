@@ -3,9 +3,7 @@ import PhotoPost from "./PhotoPost";
 import "./PhotoWall.css";
 import LoadingButton from "@mui/lab/LoadingButton";
 
-function PhotoWall({ posts, setPosts }) {
-  //makes sure we requests different batches from picsum api
-  const [postsBatchNum, setPostsBatchNum] = useState(1);
+function PhotoWall({ posts, setPosts , postsBatchNum, setPostsBatchNum}) {
   //all the current posts with the required info
   const [postsList, setPostsList] = useState([]);
   //determines if the loading should appear on the button
