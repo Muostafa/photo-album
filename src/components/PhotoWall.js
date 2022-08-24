@@ -36,12 +36,12 @@ function PhotoWall({ posts, setPosts }) {
   
       if (!isDuplicate) {
         uniqueIds.push(post.id);
-  
         return true;
       }
   
       return false;
     });
+    //create PhotoPost elements
     setPostsList(
       uniquePosts.map((post) => (
         <PhotoPost
