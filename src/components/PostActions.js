@@ -27,4 +27,4 @@ PostActions.propTypes = {
   notes: PropTypes.number,
 };
 
-export default PostActions;
+export default React.memo(PostActions);

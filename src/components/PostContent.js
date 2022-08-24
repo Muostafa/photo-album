@@ -26,4 +26,4 @@ PostContent.defaultProps = {
   postText: "This is a default description on the image",
 };
 
-export default PostContent;
+export default React.memo(PostContent);

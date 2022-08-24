@@ -21,4 +21,4 @@ UserInfo.defaultProps = {
 UserInfo.propTypes = {
   userName: PropTypes.string,
 };
-export default UserInfo;
+export default React.memo(UserInfo);

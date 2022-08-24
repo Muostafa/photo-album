@@ -28,4 +28,4 @@ function PhotoPost(props) {
   );
 }
 
-export default PhotoPost;
+export default React.memo(PhotoPost);
