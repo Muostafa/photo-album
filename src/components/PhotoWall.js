@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PhotoPost from "./PhotoPost";
 import "./PhotoWall.css";
-import LoadingButton from '@mui/lab/LoadingButton';
+import LoadingButton from "@mui/lab/LoadingButton";
 
-function PhotoWall({posts, setPosts}) {
+function PhotoWall({ posts, setPosts }) {
   //makes sure we requests different batches from picsum to avoid repetition of the photos
   const [postsBatchNum, setPostsBatchNum] = useState(1);
   //all the current posts with the required info
@@ -26,7 +26,7 @@ function PhotoWall({posts, setPosts}) {
       })
       .catch(console.log);
   };
-  
+
   //update postsLists that should appear on window
   useEffect(() => {
     setPostsList(
@@ -44,19 +44,18 @@ function PhotoWall({posts, setPosts}) {
     );
   }, [posts]);
 
-
   return (
     <div className="main">
       <div className="photo-wall">{postsList}</div>
       <LoadingButton
-          size="small"
-          onClick={getFetchPhotos}
-          loading={isLoading}
-          loadingIndicator="Loading…"
-          variant="contained"
-        >
-          Load more posts
-        </LoadingButton>
+        size="small"
+        onClick={getFetchPhotos}
+        loading={isLoading}
+        loadingIndicator="Loading…"
+        variant="contained"
+      >
+        Load more posts
+      </LoadingButton>
     </div>
   );
 }
