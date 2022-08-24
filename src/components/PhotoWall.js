@@ -14,7 +14,7 @@ function PhotoWall({ posts, setPosts }) {
   //fetch 10 photos from the picsum api and add them to posts
   const getFetchPhotos = () => {
     setIsLoading(true);
-    fetch(`https://picsum.photos/v2/list?page=${postsBatchNum}&limit=10`)
+    fetch(`https://picsum.photos/v2/list?page=${postsBatchNum}&limit=15`)
       .then((res) => res.json())
       .then((result) => {
         setPosts((oldPosts) => oldPosts.concat(result));
