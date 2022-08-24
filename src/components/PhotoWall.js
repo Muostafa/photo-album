@@ -21,7 +21,6 @@ function PhotoWall({ posts, setPosts }) {
         setPostsBatchNum(postsBatchNum + 1);
       })
       .then(() => {
-        setIsLoading(false);
         console.log(posts);
       })
       .catch(console.log);
@@ -42,6 +41,7 @@ function PhotoWall({ posts, setPosts }) {
         />
       ))
     );
+    setIsLoading(false);
   }, [posts]);
 
   return (
