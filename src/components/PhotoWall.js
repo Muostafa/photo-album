@@ -11,10 +11,10 @@ function PhotoWall({ posts, setPosts }) {
   //determines if the loading should appear on the button
   const [isLoading, setIsLoading] = useState(false);
 
-  //fetch 10 photos from the picsum api and add them to posts
+  //fetch 7 photos from the picsum api and add them to posts
   const getFetchPhotos = () => {
     setIsLoading(true);
-    fetch(`https://picsum.photos/v2/list?page=${postsBatchNum}&limit=15`)
+    fetch(`https://picsum.photos/v2/list?page=${postsBatchNum}&limit=7`)
       .then((res) => res.json())
       .then((result) => {
         setPosts((oldPosts) => oldPosts.concat(result));
