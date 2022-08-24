@@ -3,9 +3,9 @@ import PhotoPost from "./PhotoPost";
 import "./PhotoWall.css";
 import LoadingButton from '@mui/lab/LoadingButton';
 
-function PhotoWall() {
+function PhotoWall({posts, setPosts}) {
   //contains all fetched data from picsum api
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
   //makes sure we requests different batches from picsum to avoid repetition of the photos
   const [postsBatchNum, setPostsBatchNum] = useState(1);
   //all the current posts with the required info
@@ -46,7 +46,7 @@ function PhotoWall() {
     );
   }, [posts]);
 
-  
+
   return (
     <div className="main">
       <div className="photo-wall">{postsList}</div>
