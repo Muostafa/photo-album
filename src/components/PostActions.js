@@ -7,9 +7,10 @@ import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 function PostActions(props) {
+  const notes = Math.floor(Math.random() * 100);
   return (
     <div className="post-actions">
-      <div className="notes">{props.notes > 0 && props.notes + " notes"}</div>
+      <div className="notes">{notes > 0 && notes + " notes"}</div>
       <div className="actions">
         <SendIcon></SendIcon>
         <CommentOutlinedIcon></CommentOutlinedIcon>

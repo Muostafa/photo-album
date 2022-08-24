@@ -23,7 +23,7 @@ function PhotoPost(props) {
         postText={props.PhotoPost}
         id={props.id}
       ></PostContent>
-      <PostActions notes={props.notes}></PostActions>
+      <PostActions/>
     </div>
   );
 }
