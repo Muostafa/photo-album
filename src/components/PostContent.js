@@ -13,7 +13,7 @@ function PostContent(props) {
   };
   return (
     <div className="post-content">
-      <Link to={`/photos/${props.id}`} smooth>
+      <Link to={`/photos/${props.id}`}>
         <img className="post-image" src={props.postImage} alt="random" />
       </Link>
       <p style={textStyle}>{props.postText}</p>

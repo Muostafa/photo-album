@@ -19,9 +19,9 @@ import {
   // Our masonry layout will use 3 columns with a 10px gutter between
   const cellPositionerConfig = {
     cellMeasurerCache: cache,
-    columnCount: 4,
+    columnCount: 3,
     columnWidth,
-    spacer: 15,
+    spacer: 10,
   };
   
   const cellPositioner = createMasonryCellPositioner(cellPositionerConfig);

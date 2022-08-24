@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from "react";
 import PhotoPost from "./PhotoPost";
-import Button from '@mui/material/Button'; 
 import "./PhotoWall.css";
+import LoadingButton from '@mui/lab/LoadingButton';
 
 function PhotoWall() {
+  //contains all fetched data from picsum api
   const [posts, setPosts] = useState([]);
+  //makes sure we requests different batches from picsum to avoid repetition of the photos
   const [postsBatchNum, setPostsBatchNum] = useState(1);
+  //all the current posts with the required info
   const [postsList, setPostsList] = useState([]);
+  //determines if the loading should appear on the button
+  const [isLoading, setIsLoading] = useState(false);
 
+  //fetch 10 photos from the picsum api and add them to posts
   const getFetchPhotos = () => {
+    setIsLoading(true);
     fetch(`https://picsum.photos/v2/list?page=${postsBatchNum}&limit=10`)
       .then((res) => res.json())
       .then((result) => {
@@ -16,10 +23,13 @@ function PhotoWall() {
         setPostsBatchNum(postsBatchNum + 1);
       })
       .then(() => {
+        setIsLoading(false);
         console.log(posts);
       })
       .catch(console.log);
   };
+  
+  //update postsLists that should appear on window
   useEffect(() => {
     setPostsList(
       posts.map((post) => (
@@ -35,10 +45,20 @@ function PhotoWall() {
       ))
     );
   }, [posts]);
+
+  
   return (
     <div className="main">
       <div className="photo-wall">{postsList}</div>
-      <Button variant="contained" onClick={getFetchPhotos}>Load more posts</Button>
+      <LoadingButton
+          size="small"
+          onClick={getFetchPhotos}
+          loading={isLoading}
+          loadingIndicator="Loading…"
+          variant="contained"
+        >
+          Load more posts
+        </LoadingButton>
     </div>
   );
 }
